@@ -1,129 +1,377 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+/*
+  ============================================================
+  TAILWIND V4 — Everything lives here. No tailwind.config.ts.
+  ============================================================
+  Tailwind v4 uses a CSS-first config system.
+  @import "tailwindcss" replaces the three @tailwind directives.
+  Theme customisation uses @theme inside this file.
+  ============================================================
+*/
+@import 'tailwindcss';
 
+/*
+  tw-animate-css gives you animate-* utility classes like
+  animate-fade-in, animate-slide-up etc. Must come after the
+  main import so it can extend Tailwind's animation utilities.
+*/
+@import 'tw-animate-css';
+
+/*
+  ============================================================
+  @custom-variant dark
+  ============================================================
+  Shadcn v4 uses the "class" dark mode strategy — dark mode
+  is activated by adding class="dark" on <html>, not via
+  prefers-color-scheme. This one line is the v4 equivalent of
+  darkMode: ['class'] in tailwind.config.ts.
+  ============================================================
+*/
 @custom-variant dark (&:is(.dark *));
 
+/*
+  ============================================================
+  @theme inline
+  ============================================================
+  This replaces theme.extend in tailwind.config.ts entirely.
+  Every token here becomes a Tailwind utility class.
+
+  "inline" means values are inlined at build time rather than
+  emitting extra CSS variables — required when your values
+  themselves reference CSS variables (the hsl(var(--...)) pattern).
+  ============================================================
+*/
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
+  /* ── Core palette — maps Tailwind classes to Shadcn CSS vars ── */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  /* ── Border radius scale ── */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* ── Fonts — CSS variables emitted by next/font on <html> ── */
+  --font-sans: var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
 }
 
+/*
+  ============================================================
+  SHADCN CSS VARIABLES  (raw HSL channels — no hsl() wrapper)
+  ============================================================
+  Dark-only theme: :root holds dark values directly.
+  No .dark class selector needed for this page.
+  ============================================================
+*/
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.58 0.22 27);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: 0 0% 3%;
+  --foreground: 0 0% 94%;
+
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 94%;
+
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 94%;
+
+  --primary: 24 100% 50%;
+  --primary-foreground: 0 0% 3%;
+
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 94%;
+
+  --muted: 0 0% 14%;
+  --muted-foreground: 0 0% 53%;
+
+  --accent: 24 100% 50%;
+  --accent-foreground: 0 0% 3%;
+
+  --destructive: 0 72% 51%;
+
+  --border: 0 0% 16%;
+  --input: 0 0% 16%;
+  --ring: 24 100% 50%;
+
+  --radius: 0.5rem;
+
+  /* ── FlowSync brand tokens (raw hex/rgba for inline styles) ── */
+  --fs-bg: #080808;
+  --fs-bg-1: #111111;
+  --fs-bg-2: #1a1a1a;
+  --fs-bg-3: #222222;
+  --fs-border: #2a2a2a;
+  --fs-border-bright: #3a3a3a;
+  --fs-text: #f0f0f0;
+  --fs-text-dim: #888888;
+  --fs-text-dimmer: #444444;
+  --fs-accent: #ff6b00;
+  --fs-accent-dim: rgba(255, 107, 0, 0.13);
+  --fs-accent-glow: rgba(255, 107, 0, 0.27);
+  --fs-green: #00ff88;
+  --fs-blue: #4488ff;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.87 0.00 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.371 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
+/*
+  ============================================================
+  BASE
+  ============================================================
+*/
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--color-border);
+    outline-color: var(--color-ring);
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+
   html {
-    @apply font-sans;
+    scroll-behavior: smooth;
+    background-color: var(--fs-bg);
+    color: var(--fs-text);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    background-color: var(--fs-bg);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-sans);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-mono);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--fs-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--fs-border-bright);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--fs-accent);
+  }
+}
+
+/*
+  ============================================================
+  COMPONENTS
+  ============================================================
+*/
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 14px 28px;
+    background-color: var(--fs-accent);
+    color: #080808;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: -0.01em;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px var(--fs-accent-glow);
+  }
+
+  .btn-primary:focus-visible {
+    outline: 2px solid var(--fs-accent);
+    outline-offset: 2px;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 13px 28px;
+    background-color: transparent;
+    color: var(--fs-text);
+    font-weight: 500;
+    font-size: 0.875rem;
+    border: 1px solid var(--fs-border-bright);
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--fs-accent);
+    color: var(--fs-accent);
+  }
+
+  .btn-ghost:focus-visible {
+    outline: 2px solid var(--fs-accent);
+    outline-offset: 2px;
+  }
+
+  /* card-fs avoids collision with Shadcn's .card class */
+  .card-fs {
+    background-color: var(--fs-bg-1);
+    border: 1px solid var(--fs-border);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-fs::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 107, 0, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card-fs > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-pad {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  @media (max-width: 768px) {
+    .section-pad {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  .container-lg {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .noise-wrap {
+    position: relative;
+  }
+
+  .noise-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
+
+/*
+  ============================================================
+  UTILITIES — single-property helpers only
+  ============================================================
+*/
+@layer utilities {
+  .font-mono-fs {
+    font-family: var(--font-mono);
+  }
+
+  .text-accent-fs {
+    color: var(--fs-accent);
+  }
+  .text-green-fs {
+    color: var(--fs-green);
+  }
+  .text-blue-fs {
+    color: var(--fs-blue);
+  }
+  .text-dim {
+    color: var(--fs-text-dim);
+  }
+  .text-dimmer {
+    color: var(--fs-text-dimmer);
+  }
+
+  .bg-fs-0 {
+    background-color: var(--fs-bg);
+  }
+  .bg-fs-1 {
+    background-color: var(--fs-bg-1);
+  }
+  .bg-fs-2 {
+    background-color: var(--fs-bg-2);
+  }
+  .bg-fs-3 {
+    background-color: var(--fs-bg-3);
+  }
+
+  .border-fs {
+    border-color: var(--fs-border);
+  }
+  .border-fs-bright {
+    border-color: var(--fs-border-bright);
+  }
+  .border-fs-accent {
+    border-color: var(--fs-accent);
+  }
+
+  .glow-text-fs {
+    text-shadow: 0 0 40px var(--fs-accent-glow);
   }
 }
