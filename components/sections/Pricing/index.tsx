@@ -70,14 +70,7 @@ export default function Pricing() {
           transition={{ duration: 0.6 }}
           className='text-center mb-16'
         >
-          <div
-            className='inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full border font-mono-fs text-xs'
-            style={{
-              borderColor: 'var(--fs-border)',
-              color: 'var(--fs-text-dim)',
-              background: 'var(--fs-bg-2)',
-            }}
-          >
+          <div className='inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full border font-mono-fs text-xs text-fs-text-dim border-fs bg-fs-2'>
             Simple pricing
           </div>
           <h2
@@ -86,10 +79,7 @@ export default function Pricing() {
           >
             Start free. Scale infinitely.
           </h2>
-          <p
-            className='text-base max-w-lg mx-auto'
-            style={{ color: 'var(--fs-text-dim)' }}
-          >
+          <p className='text-base max-w-lg mx-auto text-fs-text-dim'>
             No hidden fees, no surprises. Every plan includes a 14-day free trial of Pro
             features.
           </p>
@@ -106,14 +96,15 @@ export default function Pricing() {
               className='relative rounded-xl p-6 border flex flex-col'
               style={{
                 background: plan.highlight ? 'var(--fs-bg-2)' : 'var(--fs-bg-1)',
-                borderColor: plan.highlight ? 'rgba(255,107,0,0.4)' : 'var(--fs-border)',
+                borderColor: plan.highlight
+                  ? 'oklch(0.7 0.19 44 / 40%)'
+                  : 'var(--fs-border)',
               }}
             >
               {plan.highlight && (
                 <div
-                  className='absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 
-                             text-xs font-mono-fs font-bold px-3 py-1 rounded-full'
-                  style={{ background: 'var(--fs-accent)', color: '#080808' }}
+                  className='absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-xs font-mono-fs font-bold px-3 py-1 rounded-full'
+                  style={{ background: 'var(--fs-accent)', color: 'var(--fs-bg)' }}
                 >
                   <Zap size={10} fill='currentColor' />
                   Most popular
@@ -122,10 +113,7 @@ export default function Pricing() {
 
               {/* Plan info */}
               <div className='mb-6'>
-                <div
-                  className='text-xs font-mono-fs uppercase tracking-widest mb-2'
-                  style={{ color: 'var(--fs-text-dim)' }}
-                >
+                <div className='text-xs font-mono-fs uppercase tracking-widest mb-2 text-fs-text-dim'>
                   {plan.name}
                 </div>
                 <div className='flex items-end gap-1 mb-2'>
@@ -135,14 +123,9 @@ export default function Pricing() {
                   >
                     {plan.price}
                   </span>
-                  <span className='text-sm mb-1' style={{ color: 'var(--fs-text-dim)' }}>
-                    {plan.period}
-                  </span>
+                  <span className='text-sm mb-1 text-fs-text-dim'>{plan.period}</span>
                 </div>
-                <p
-                  className='text-xs leading-relaxed'
-                  style={{ color: 'var(--fs-text-dim)' }}
-                >
+                <p className='text-xs leading-relaxed text-fs-text-dim'>
                   {plan.description}
                 </p>
               </div>
@@ -150,11 +133,7 @@ export default function Pricing() {
               {/* CTA */}
               <a
                 href='#'
-                className={
-                  plan.highlight
-                    ? 'btn-primary mb-6 text-center justify-center'
-                    : 'btn-ghost mb-6 text-center justify-center'
-                }
+                className={`mb-6 text-center justify-center ${plan.highlight ? 'btn-primary' : 'btn-ghost'}`}
               >
                 {plan.cta}
               </a>
@@ -163,13 +142,8 @@ export default function Pricing() {
               <div className='space-y-2.5 mt-auto'>
                 {plan.features.map((feature) => (
                   <div key={feature} className='flex items-center gap-2.5'>
-                    <Check
-                      size={13}
-                      style={{ color: 'var(--fs-green)', flexShrink: 0 }}
-                    />
-                    <span className='text-sm' style={{ color: 'var(--fs-text-dim)' }}>
-                      {feature}
-                    </span>
+                    <Check size={13} className='text-fs-green shrink-0' />
+                    <span className='text-sm text-fs-text-dim'>{feature}</span>
                   </div>
                 ))}
               </div>

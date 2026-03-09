@@ -11,15 +11,14 @@ export default function CTA() {
   return (
     <section
       ref={ref}
-      className='section-pad  border-0 relative overflow-hidden'
-      style={{ borderColor: 'var(--fs-border)' }}
+      className='section-pad border-t border-fs relative overflow-hidden'
     >
       {/* Background glow */}
       <div
         className='absolute inset-0 pointer-events-none'
         style={{
           background:
-            'radial-gradient(ellipse 60% 50% at 50% 100%, rgba(255,107,0,0.1) 0%, transparent 70%)',
+            'radial-gradient(ellipse 60% 50% at 50% 100%, oklch(0.7 0.19 44 / 10%) 0%, transparent 70%)',
         }}
       />
 
@@ -30,10 +29,7 @@ export default function CTA() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className='max-w-2xl mx-auto text-center'
         >
-          <div
-            className='font-mono-fs text-xs uppercase tracking-widest mb-6'
-            style={{ color: 'var(--fs-accent)' }}
-          >
+          <div className='font-mono-fs text-xs uppercase tracking-widest mb-6 text-fs-accent'>
             Get started today
           </div>
 
@@ -43,10 +39,10 @@ export default function CTA() {
           >
             Stop duct-taping.
             <br />
-            <span style={{ color: 'var(--fs-accent)' }}>Start flowing.</span>
+            <span className='text-fs-accent'>Start flowing.</span>
           </h2>
 
-          <p className='text-base mb-10' style={{ color: 'var(--fs-text-dim)' }}>
+          <p className='text-base mb-10 text-fs-text-dim'>
             Join 50,000+ teams automating everything from Slack alerts to AI-powered
             customer journeys — in under 10 minutes.
           </p>
@@ -61,10 +57,7 @@ export default function CTA() {
             </a>
           </div>
 
-          <p
-            className='mt-6 text-xs font-mono-fs'
-            style={{ color: 'var(--fs-text-dimmer)' }}
-          >
+          <p className='mt-6 text-xs font-mono-fs text-fs-text-dimmer'>
             Free forever on Starter. No credit card required.
           </p>
         </motion.div>

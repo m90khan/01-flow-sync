@@ -20,24 +20,19 @@ export default function LogoBar() {
   const triplicatedLogos = [...LOGOS, ...LOGOS, ...LOGOS];
 
   return (
-    <section
-      className='py-12 border-y overflow-hidden'
-      style={{ borderColor: 'var(--fs-border)', background: 'var(--fs-bg-1)' }}
-    >
-      <div className='flex items-center gap-6 mb-3'>
-        <div className='h-px flex-1' style={{ background: 'var(--fs-border)' }} />
-        <span
-          className='font-mono-fs text-xs uppercase tracking-widest shrink-0'
-          style={{ color: 'var(--fs-text-dimmer)' }}
-        >
+    <section className='py-12 border-y border-fs overflow-hidden bg-fs-1'>
+      {/* Label */}
+      <div className='flex items-center gap-6 mb-3 container-lg'>
+        <div className='h-px flex-1 bg-fs-border' />
+        <span className='font-mono-fs text-xs uppercase tracking-widest shrink-0 text-fs-text-dimmer'>
           Integrates with your entire stack
         </span>
-        <div className='h-px flex-1' style={{ background: 'var(--fs-border)' }} />
+        <div className='h-px flex-1 bg-fs-border' />
       </div>
 
       {/* Scrolling track */}
       <div className='relative flex overflow-hidden'>
-        {/* Fade masks – optional but nice */}
+        {/* Fade masks */}
         <div
           className='absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none'
           style={{ background: 'linear-gradient(90deg, var(--fs-bg-1), transparent)' }}

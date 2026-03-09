@@ -5,9 +5,14 @@ import { motion, useInView } from 'motion/react';
 import { ArrowRight, Play, TrendingUp, Users, Zap } from 'lucide-react';
 
 const METRICS = [
-  { icon: TrendingUp, label: 'Faster execution', value: '10×', color: '#FF6B00' },
-  { icon: Users, label: 'Teams using FlowSync', value: '50K+', color: '#00FF88' },
-  { icon: Zap, label: 'Automations built', value: '2.4M', color: '#4488FF' },
+  {
+    icon: TrendingUp,
+    label: 'Faster execution',
+    value: '10×',
+    color: 'var(--fs-accent)',
+  },
+  { icon: Users, label: 'Teams using FlowSync', value: '50K+', color: 'var(--fs-green)' },
+  { icon: Zap, label: 'Automations built', value: '2.4M', color: 'var(--fs-blue)' },
 ];
 
 export default function Hero() {
@@ -20,17 +25,16 @@ export default function Hero() {
       className='relative min-h-screen flex items-center justify-center grid-bg'
       style={{ paddingTop: '100px', paddingBottom: '80px' }}
     >
-      {/* Radial glow */}
+      {/* Radial orange glow */}
       <div
-        className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-                   w-[700px] h-[500px] rounded-full pointer-events-none'
+        className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full pointer-events-none'
         style={{
           background:
-            'radial-gradient(ellipse, rgba(255,107,0,0.08) 0%, transparent 70%)',
+            'radial-gradient(ellipse, var(--fs-accent-glow) 0%, transparent 70%)',
         }}
       />
 
-      {/* Decorative horizontal lines */}
+      {/* Decorative horizontal rules */}
       <div
         className='absolute inset-x-0 top-1/3 h-px'
         style={{
@@ -53,15 +57,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className='inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border font-mono-fs text-xs'
+            className='inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border font-mono-fs text-xs text-fs-accent border-fs-accent'
             style={{
               background: 'var(--fs-accent-dim)',
-              borderColor: 'rgba(255,107,0,0.3)',
-              color: 'var(--fs-accent)',
+              borderColor: 'oklch(0.7 0.19 44 / 30%)',
             }}
           >
             <span className='w-1.5 h-1.5 rounded-full bg-current animate-pulse' />
-            New - Introducing FlowSync AI Agents
+            New — Introducing FlowSync AI Agents
             <ArrowRight size={12} />
           </motion.div>
 
@@ -75,21 +78,18 @@ export default function Hero() {
           >
             Automate Every
             <br />
-            <span style={{ color: 'var(--fs-accent)' }} className='glow-text'>
-              Workflow.
-            </span>
+            <span className='text-fs-accent glow-text-fs'>Workflow.</span>
           </motion.h1>
 
-          {/* Sub */}
+          {/* Subtext */}
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className='text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed'
-            style={{ color: 'var(--fs-text-dim)' }}
+            className='text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-fs-text-dim'
           >
-            FlowSync connects your entire stack. 500+ integrations, AI-powered routing,
-            and no-code builders so your team moves at machine speed.
+            FlowSync connects your entire stack — 500+ integrations, AI-powered routing,
+            and no-code builders — so your team moves at machine speed.
           </motion.p>
 
           {/* CTAs */}
@@ -100,7 +100,7 @@ export default function Hero() {
             className='flex flex-col sm:flex-row items-center justify-center gap-4 mb-16'
           >
             <a href='#' className='btn-primary text-base'>
-              Start free - no credit card
+              Start free — no credit card
               <ArrowRight size={16} />
             </a>
             <a href='#' className='btn-ghost text-base flex items-center gap-2'>
@@ -109,13 +109,12 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          {/* Social proof line */}
+          {/* Social proof */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
-            className='font-mono-fs text-xs mb-12'
-            style={{ color: 'var(--fs-text-dimmer)' }}
+            className='font-mono-fs text-xs mb-12 text-fs-text-dimmer'
           >
             Trusted by engineering & ops teams at Stripe, Linear, Notion, Figma, and
             49,983 others
@@ -147,9 +146,7 @@ export default function Hero() {
                 >
                   {metric.value}
                 </div>
-                <div className='text-xs' style={{ color: 'var(--fs-text-dimmer)' }}>
-                  {metric.label}
-                </div>
+                <div className='text-xs text-fs-text-dimmer'>{metric.label}</div>
               </motion.div>
             ))}
           </motion.div>

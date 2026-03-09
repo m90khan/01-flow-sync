@@ -10,7 +10,7 @@ const TESTIMONIALS = [
     name: 'Sarah Chen',
     title: 'Head of Ops, Linear',
     avatar: 'SC',
-    color: '#FF6B00',
+    color: 'var(--fs-accent)',
   },
   {
     quote:
@@ -18,7 +18,7 @@ const TESTIMONIALS = [
     name: 'Marcus Williams',
     title: 'Staff Engineer, Stripe',
     avatar: 'MW',
-    color: '#4488FF',
+    color: 'var(--fs-blue)',
   },
   {
     quote:
@@ -26,15 +26,15 @@ const TESTIMONIALS = [
     name: 'Priya Patel',
     title: 'Platform Lead, Figma',
     avatar: 'PP',
-    color: '#00FF88',
+    color: 'var(--fs-green)',
   },
   {
     quote:
-      'SOC 2 compliance, SAML SSO, and audit logs out of the box. FlowSync is the only automation tool our security team approved.',
+      'SOC 2 compliance, SAML SSO, and audit logs out of the box. The only automation tool our security team approved.',
     name: "James O'Brien",
     title: 'CISO, Datadog',
     avatar: 'JO',
-    color: '#FF6B00',
+    color: 'var(--fs-accent)',
   },
 ];
 
@@ -43,12 +43,9 @@ export default function Testimonials() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section
-      ref={ref}
-      className='section-pad border-0'
-      style={{ borderColor: 'var(--fs-border)', background: 'var(--fs-bg-1)' }}
-    >
+    <section ref={ref} className='section-pad border-t border-fs bg-fs-1'>
       <div className='container-lg'>
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -56,11 +53,8 @@ export default function Testimonials() {
           className='mb-16'
         >
           <div className='flex items-center gap-3 mb-4'>
-            <div className='h-px w-8' style={{ background: 'var(--fs-accent)' }} />
-            <span
-              className='font-mono-fs text-xs uppercase tracking-widest'
-              style={{ color: 'var(--fs-accent)' }}
-            >
+            <div className='h-px w-8 bg-fs-accent' />
+            <span className='font-mono-fs text-xs uppercase tracking-widest text-fs-accent'>
               Social Proof
             </span>
           </div>
@@ -70,10 +64,11 @@ export default function Testimonials() {
           >
             Teams that refused to
             <br />
-            <span style={{ color: 'var(--fs-accent)' }}>compromise on speed.</span>
+            <span className='text-fs-accent'>compromise on speed.</span>
           </h2>
         </motion.div>
 
+        {/* Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           {TESTIMONIALS.map((t, i) => (
             <motion.div
@@ -83,33 +78,29 @@ export default function Testimonials() {
               transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className='card-fs p-6'
             >
-              {/* Quote marks */}
+              {/* Decorative quote mark */}
               <div
                 className='text-5xl font-bold leading-none mb-4 select-none'
-                style={{ color: `${t.color}44` }}
+                style={{ color: `color-mix(in oklch, ${t.color} 30%, transparent)` }}
               >
-                "
+                &ldquo;
               </div>
 
-              <p
-                className='text-sm leading-relaxed mb-6'
-                style={{ color: 'var(--fs-text-dim)' }}
-              >
-                {t.quote}
-              </p>
+              <p className='text-sm leading-relaxed mb-6 text-fs-text-dim'>{t.quote}</p>
 
               <div className='flex items-center gap-3'>
                 <div
                   className='w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold'
-                  style={{ background: `${t.color}22`, color: t.color }}
+                  style={{
+                    background: `color-mix(in oklch, ${t.color} 15%, transparent)`,
+                    color: t.color,
+                  }}
                 >
                   {t.avatar}
                 </div>
                 <div>
                   <div className='text-sm font-bold text-white'>{t.name}</div>
-                  <div className='text-xs' style={{ color: 'var(--fs-text-dimmer)' }}>
-                    {t.title}
-                  </div>
+                  <div className='text-xs text-fs-text-dimmer'>{t.title}</div>
                 </div>
               </div>
             </motion.div>
