@@ -7,7 +7,7 @@ import { Plus, Minus } from 'lucide-react';
 const FAQS = [
   {
     q: 'How does the free plan work?',
-    a: 'The free Starter plan gives you 1,000 executions per month and 5 active flows — no credit card required. Upgrade when you need more.',
+    a: 'The free Starter plan gives you 1,000 executions per month and 5 active flows - no credit card required. Upgrade when you need more.',
   },
   {
     q: 'Can I migrate from Zapier or Make?',
@@ -108,7 +108,7 @@ export default function FAQ() {
             </p>
           </motion.div>
 
-          {/* Right — accordion */}
+          {/* Right - accordion */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

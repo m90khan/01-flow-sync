@@ -64,7 +64,7 @@ export default function Hero() {
             }}
           >
             <span className='w-1.5 h-1.5 rounded-full bg-current animate-pulse' />
-            New — Introducing FlowSync AI Agents
+            New - Introducing FlowSync AI Agents
             <ArrowRight size={12} />
           </motion.div>
 
@@ -88,8 +88,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className='text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-fs-text-dim'
           >
-            FlowSync connects your entire stack — 500+ integrations, AI-powered routing,
-            and no-code builders — so your team moves at machine speed.
+            FlowSync connects your entire stack - 500+ integrations, AI-powered routing,
+            and no-code builders - so your team moves at machine speed.
           </motion.p>
 
           {/* CTAs */}
@@ -100,7 +100,7 @@ export default function Hero() {
             className='flex flex-col sm:flex-row items-center justify-center gap-4 mb-16'
           >
             <a href='#' className='btn-primary text-base'>
-              Start free — no credit card
+              Start free - no credit card
               <ArrowRight size={16} />
             </a>
             <a href='#' className='btn-ghost text-base flex items-center gap-2'>

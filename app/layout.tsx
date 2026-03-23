@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { Space_Grotesk, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
+import Navbar from '@/components/shared/Navbar';
+import Footer from '@/components/shared/Footer';
 
 /*
-  next/font/google — self-hosts fonts at build time.
+  next/font/google - self-hosts fonts at build time.
   `variable` mode emits a CSS custom property on <html>.
   globals.css @theme inline maps these to --font-sans / --font-mono
   which Tailwind v4 then uses for font-sans and font-mono utilities.
@@ -24,7 +26,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'FlowSync — Automate Every Workflow',
+  title: 'FlowSync - Automate Every Workflow',
   description:
     'The all-in-one workflow automation platform for high-performance teams. Connect, automate, and scale without limits.',
 };
@@ -45,7 +47,10 @@ export default function RootLayout({
       */
       className={`${spaceGrotesk.variable} ${ibmPlexMono.variable}`}
     >
-      <body className='antialiased'>{children}</body>
+      <body className='antialiased'>
+        <Navbar />
+        {children} <Footer />
+      </body>
     </html>
   );
 }

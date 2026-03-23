@@ -25,7 +25,7 @@ Hero → Logo Bar → Features → Dashboard → Pricing → Testimonials → FA
 | Framework        | **Next.js 16** (App Router)                     |
 | Component System | **Shadcn UI v4**                                |
 | Animations       | **Motion 12** (`motion/react`)                  |
-| Font Loading     | **`next/font/google`** — self-hosted, zero FOUC |
+| Font Loading     | **`next/font/google`** - self-hosted, zero FOUC |
 | Icons            | **Lucide React**                                |
 | Utilities        | **clsx** + **tailwind-merge** via `cn()`        |
 | Language         | **TypeScript**                                  |
@@ -59,14 +59,14 @@ Hero → Logo Bar → Features → Dashboard → Pricing → Testimonials → FA
 | Display / Body   | **Space Grotesk** | 300 · 400 · 500 · 600 · 700 |
 | Monospace / Code | **IBM Plex Mono** | 300 · 400 · 500             |
 
-Both fonts are loaded via `next/font/google` — fully self-hosted at build time. No external font requests. No flash of unstyled text.
+Both fonts are loaded via `next/font/google` - fully self-hosted at build time. No external font requests. No flash of unstyled text.
 
 ### Design Language
 
-- **Aesthetic:** Dark brutalist minimal — high contrast, deliberate whitespace, zero decoration noise
+- **Aesthetic:** Dark brutalist minimal - high contrast, deliberate whitespace, zero decoration noise
 - **Border radius:** `0.5rem` base (`--radius`)
 - **Buttons:** Chamfered `.btn-primary` (orange fill) and `.btn-ghost` (transparent + border)
-- **Cards:** `.card-fs` — dark surface with subtle orange gradient overlay in `::before`
+- **Cards:** `.card-fs` - dark surface with subtle orange gradient overlay in `::before`
 - **Texture:** SVG noise grain overlay on `<main>` via `.noise-wrap`
 - **Grid background:** CSS `background-image` repeating lines on Hero via `.grid-bg`
 
@@ -97,7 +97,7 @@ Full-viewport hero with a radial orange glow behind the headline, decorative hor
 
 **Content:**
 
-- Badge: "New — Introducing FlowSync AI Agents" with pulsing dot
+- Badge: "New - Introducing FlowSync AI Agents" with pulsing dot
 - Headline: "Automate Every / Workflow." (orange glow on "Workflow.")
 - Subtext: product value proposition
 - Dual CTA: primary + ghost button
@@ -138,7 +138,7 @@ Six-card grid showcasing platform capabilities. Each card has a colored icon, ti
 
 **File:** `components/sections/Dashboard.tsx`
 
-Split two-column section. Left column has copy. Right column shows a realistic fake execution log UI — a browser chrome mockup with a live workflow step list, status indicators (done / running / pending), execution ID, and a "View full log" link. The right column parallaxes vertically on scroll.
+Split two-column section. Left column has copy. Right column shows a realistic fake execution log UI - a browser chrome mockup with a live workflow step list, status indicators (done / running / pending), execution ID, and a "View full log" link. The right column parallaxes vertically on scroll.
 
 **Workflow steps shown:**
 
@@ -211,7 +211,7 @@ Five-column link grid (Product · Company · Developers · Support) + brand colu
 All animations use **Motion 12** (`motion/react`). The project uses a consistent easing curve across all entrance animations:
 
 ```ts
-ease: [0.16, 1, 0.3, 1]; // Custom spring-like ease — fast in, slow out
+ease: [0.16, 1, 0.3, 1]; // Custom spring-like ease - fast in, slow out
 ```
 
 ### Page Load
@@ -227,7 +227,7 @@ ease: [0.16, 1, 0.3, 1]; // Custom spring-like ease — fast in, slow out
 
 ### Scroll-Triggered (`useInView` with `once: true`)
 
-Every section below the fold uses `useInView` — animations fire once when the element enters the viewport and do not replay on scroll-back.
+Every section below the fold uses `useInView` - animations fire once when the element enters the viewport and do not replay on scroll-back.
 
 | Section          | Trigger         | Animation                                                                          |
 | ---------------- | --------------- | ---------------------------------------------------------------------------------- |
@@ -242,16 +242,16 @@ Every section below the fold uses `useInView` — animations fire once when the 
 | Pricing cards    | Staggered entry | Each card fades up, `100ms` delay between                                          |
 | Testimonials     | Staggered entry | Each card fades up `y: 32`, `100ms` delay                                          |
 | FAQ header       | Enters viewport | Fade up                                                                            |
-| FAQ accordion    | Click           | `AnimatePresence` — panel expands `height: 0 → auto` + fade in, collapses on close |
+| FAQ accordion    | Click           | `AnimatePresence` - panel expands `height: 0 → auto` + fade in, collapses on close |
 | CTA block        | Enters viewport | Fade up `y: 32`                                                                    |
 
 ### Continuous / Ambient
 
 | Element                   | Animation                                                     |
 | ------------------------- | ------------------------------------------------------------- |
-| Logo Bar                  | Infinite horizontal marquee — `x: 0% → -50%`, 25s linear loop |
-| Hero badge dot            | CSS `animate-pulse` — pulsing opacity                         |
-| Dashboard "Running" badge | CSS `animate-pulse` — pulsing dot                             |
+| Logo Bar                  | Infinite horizontal marquee - `x: 0% → -50%`, 25s linear loop |
+| Hero badge dot            | CSS `animate-pulse` - pulsing opacity                         |
+| Dashboard "Running" badge | CSS `animate-pulse` - pulsing dot                             |
 
 ---
 
@@ -262,8 +262,8 @@ lp-saas/
 │
 ├── app/
 │   ├── globals.css          # Tailwind v4 CSS-first config, design tokens, components
-│   ├── layout.tsx           # Root layout — next/font, metadata
-│   └── page.tsx             # Page composition — imports all sections
+│   ├── layout.tsx           # Root layout - next/font, metadata
+│   └── page.tsx             # Page composition - imports all sections
 │
 ├── components/
 │   └── sections/
@@ -279,9 +279,9 @@ lp-saas/
 │       └── Footer.tsx        # 5-column footer
 │
 ├── lib/
-│   └── utils.ts              # cn() — clsx + tailwind-merge
+│   └── utils.ts              # cn() - clsx + tailwind-merge
 │
-├── postcss.config.mjs        # @tailwindcss/postcss — required for Tailwind v4
+├── postcss.config.mjs        # @tailwindcss/postcss - required for Tailwind v4
 └── tsconfig.json             # TypeScript config (path alias @/ → root)
 ```
 
@@ -335,7 +335,7 @@ In `app/layout.tsx`, replace the `next/font/google` imports:
 // Before
 import { Space_Grotesk, IBM_Plex_Mono } from 'next/font/google';
 
-// After — any Google Font
+// After - any Google Font
 import { Inter, Fira_Code } from 'next/font/google';
 ```
 
@@ -350,7 +350,7 @@ Then update the `@theme inline` block in `globals.css`:
 
 ### Edit Section Content
 
-All copy, data arrays, and configuration are defined at the top of each section file as plain TypeScript constants — no CMS, no external config file needed:
+All copy, data arrays, and configuration are defined at the top of each section file as plain TypeScript constants - no CMS, no external config file needed:
 
 ```ts
 // Features.tsx
@@ -367,7 +367,7 @@ const FEATURES = [
 
 ### Add or Remove Sections
 
-Edit `app/page.tsx` — import and place sections in any order:
+Edit `app/page.tsx` - import and place sections in any order:
 
 ```tsx
 export default function FlowSyncPage() {
@@ -475,14 +475,14 @@ npm start
 ✅ TypeScript throughout
 ✅ cn() utility (clsx + tailwind-merge)
 ✅ Correct postcss.config.mjs for Tailwind v4
-✅ Production-ready — deploys to Vercel in one command
+✅ Production-ready - deploys to Vercel in one command
 ```
 
 ---
 
 ## License
 
-**Commercial License — Single Product**
+**Commercial License - Single Product**
 
 By purchasing this template you are granted a **non-exclusive, non-transferable license** to use this template in **commercial or personal project**.
 
@@ -510,7 +510,7 @@ If you have questions about setup, customisation, or encounter a bug, please rea
 
 ## Changelog
 
-### v1.0.0 — Initial Release
+### v1.0.0 - Initial Release
 
 - 10 sections: Navbar, Hero, LogoBar, Features, Dashboard, Pricing, Testimonials, FAQ, CTA, Footer
 - Tailwind v4 CSS-first architecture
@@ -520,4 +520,4 @@ If you have questions about setup, customisation, or encounter a bug, please rea
 
 ---
 
-_FlowSync Landing Page Template — built by [Your Name / Studio]. Made for founders, indie hackers, and agencies who ship fast._
+_FlowSync Landing Page Template - built by [Your Name / Studio]. Made for founders, indie hackers, and agencies who ship fast._

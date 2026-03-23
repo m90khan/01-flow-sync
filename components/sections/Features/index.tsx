@@ -9,7 +9,7 @@ const FEATURES = [
     icon: Bot,
     title: 'AI-Powered Routing',
     description:
-      'Intelligent agents that decide, branch, and act based on real-time context — no rigid rule trees.',
+      'Intelligent agents that decide, branch, and act based on real-time context - no rigid rule trees.',
     tag: 'New',
     color: 'var(--fs-accent)',
   },
@@ -33,7 +33,7 @@ const FEATURES = [
     icon: Repeat2,
     title: 'Real-Time Triggers',
     description:
-      'Webhooks, schedules, polling, and event streams — react to anything, instantly.',
+      'Webhooks, schedules, polling, and event streams - react to anything, instantly.',
     tag: null,
     color: 'var(--fs-accent)',
   },

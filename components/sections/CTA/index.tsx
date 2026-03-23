@@ -44,12 +44,12 @@ export default function CTA() {
 
           <p className='text-base mb-10 text-fs-text-dim'>
             Join 50,000+ teams automating everything from Slack alerts to AI-powered
-            customer journeys — in under 10 minutes.
+            customer journeys - in under 10 minutes.
           </p>
 
           <div className='flex flex-col sm:flex-row items-center justify-center gap-4'>
             <a href='#' className='btn-primary text-base w-full sm:w-auto justify-center'>
-              Start free — no credit card
+              Start free - no credit card
               <ArrowRight size={16} />
             </a>
             <a href='#' className='btn-ghost text-base w-full sm:w-auto justify-center'>

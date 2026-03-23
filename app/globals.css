@@ -7,7 +7,7 @@
 /* ─────────────────────────────────────────────────────────────────
    @theme inline
    Follows exact Shadcn v4 convention:
-   • var(--token) directly — NOT hsl(var(--token))
+   • var(--token) directly - NOT hsl(var(--token))
    • Shadcn v4 stores full oklch() values in the CSS vars
    • Brand utilities registered here so Tailwind generates classes
 ───────────────────────────────────────────────────────────────── */
@@ -58,11 +58,11 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  /* Fonts — CSS variables emitted by next/font/google on <html> */
+  /* Fonts - CSS variables emitted by next/font/google on <html> */
   --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, 'Courier New', monospace;
 
-  /* FlowSync brand colour utilities — generates bg-fs-*, text-fs-*, border-fs-* classes */
+  /* FlowSync brand colour utilities - generates bg-fs-*, text-fs-*, border-fs-* classes */
   --color-fs-accent: var(--fs-accent);
   --color-fs-accent-dim: var(--fs-accent-dim);
   --color-fs-green: var(--fs-green);
@@ -80,14 +80,14 @@
 
 /* ─────────────────────────────────────────────────────────────────
    CSS VARIABLES
-   Shadcn v4 uses oklch() full values — not raw channel numbers.
+   Shadcn v4 uses oklch() full values - not raw channel numbers.
    FlowSync is dark-only so :root carries dark values directly.
    No .dark selector needed for this product.
 ───────────────────────────────────────────────────────────────── */
 :root {
   --radius: 0.5rem;
 
-  /* Shadcn semantic — dark theme values in oklch */
+  /* Shadcn semantic - dark theme values in oklch */
   --background: oklch(0.11 0 0);
   --foreground: oklch(0.94 0 0);
   --card: oklch(0.16 0 0);
@@ -142,7 +142,7 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   BASE — exact Shadcn v4 @layer base pattern with @apply
+   BASE - exact Shadcn v4 @layer base pattern with @apply
 ───────────────────────────────────────────────────────────────── */
 @layer base {
   * {
@@ -242,7 +242,7 @@
     outline-color: var(--fs-accent);
   }
 
-  /* card-fs — never collides with Shadcn's .card */
+  /* card-fs - never collides with Shadcn's .card */
   .card-fs {
     @apply relative overflow-hidden;
     background-color: var(--fs-bg-1);
@@ -302,7 +302,7 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   UTILITIES — single-property helpers
+   UTILITIES - single-property helpers
 ───────────────────────────────────────────────────────────────── */
 @layer utilities {
   .font-mono-fs {
