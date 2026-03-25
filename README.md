@@ -8,7 +8,7 @@ Designed for workflow automation products, but easily adapted for any B2B SaaS, 
 
 ## Preview
 
-![FlowSync Preview](public/overview.png)
+![FlowSync Preview](public/flow-1280.png)
 
 > Dark brutalist aesthetic · Space Grotesk + IBM Plex Mono · Orange `#FF6B00` accent on near-black
 
