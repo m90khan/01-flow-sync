@@ -519,5 +519,3 @@ If you have questions about setup, customisation, or encounter a bug, please rea
 - Space Grotesk + IBM Plex Mono via next/font/google
 
 ---
-
-_FlowSync Landing Page Template - built by [Your Name / Studio]. Made for founders, indie hackers, and agencies who ship fast._
